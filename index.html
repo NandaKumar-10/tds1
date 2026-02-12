@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geography Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f6f8;
+        }
+        h1 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #0070f3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0059c1;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Geography Quiz</h1>
+
+<form id="quizForm">
+
+    <div class="question">
+        <h3>1. Which desert lies in northwestern India?</h3>
+        <input type="radio" name="q1" value="Thar"> Thar<br>
+        <input type="radio" name="q1" value="Sahara"> Sahara<br>
+        <input type="radio" name="q1" value="Gobi"> Gobi<br>
+        <input type="radio" name="q1" value="Kalahari"> Kalahari<br>
+        <input type="radio" name="q1" value="Atacama"> Atacama<br>
+    </div>
+
+    <div class="question">
+        <h3>2. Which is the largest ocean in the world?</h3>
+        <input type="radio" name="q2" value="Indian"> Indian Ocean<br>
+        <input type="radio" name="q2" value="Pacific"> Pacific Ocean<br>
+        <input type="radio" name="q2" value="Atlantic"> Atlantic Ocean<br>
+        <input type="radio" name="q2" value="Arctic"> Arctic Ocean<br>
+    </div>
+
+    <div class="question">
+        <h3>3. Mount Everest lies in which mountain range?</h3>
+        <input type="radio" name="q3" value="Andes"> Andes<br>
+        <input type="radio" name="q3" value="Himalayas"> Himalayas<br>
+        <input type="radio" name="q3" value="Alps"> Alps<br>
+        <input type="radio" name="q3" value="Rockies"> Rockies<br>
+    </div>
+
+    <div class="question">
+        <h3>4. Which river is the longest in the world?</h3>
+        <input type="radio" name="q4" value="Amazon"> Amazon<br>
+        <input type="radio" name="q4" value="Nile"> Nile<br>
+        <input type="radio" name="q4" value="Yangtze"> Yangtze<br>
+        <input type="radio" name="q4" value="Mississippi"> Mississippi<br>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+function checkAnswers() {
+    let score = 0;
+
+    if (document.querySelector('input[name="q1"]:checked')?.value === "Thar") score++;
+    if (document.querySelector('input[name="q2"]:checked')?.value === "Pacific") score++;
+    if (document.querySelector('input[name="q3"]:checked')?.value === "Himalayas") score++;
+    if (document.querySelector('input[name="q4"]:checked')?.value === "Nile") score++;
+
+    document.getElementById("result").innerText = 
+        "Your Score: " + score + " / 4";
+}
+</script>
+
+</body>
+</html>
